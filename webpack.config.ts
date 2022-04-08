@@ -39,7 +39,6 @@ export default (env: Record<string, unknown>) => {
     plugins: [
       new MiniCssExtractPlugin({
         filename: "[name].css",
-        chunkFilename: "[id].css",
       }),
     ],
   };
