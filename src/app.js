@@ -4,6 +4,8 @@ const output = document.querySelector("#output");
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
+let objectURL = "";
+
 root.querySelector("input").addEventListener("change", (e) => {
   const { files } = e.target;
 
@@ -42,8 +44,8 @@ root.querySelector("input").addEventListener("change", (e) => {
 
           canvas.toBlob((blob) => {
             if (blob) {
-              if (result !== "") URL.revokeObjectURL(result);
-              const objectURL = URL.createObjectURL(blob);
+              if (objectURL !== "") URL.revokeObjectURL(objectURL);
+              objectURL = URL.createObjectURL(blob);
 
               output.innerHTML = `<img src="${objectURL}" alt="">`;
             }
